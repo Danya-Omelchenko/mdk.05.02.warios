@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Wariors_Omelchenko.Classes
 {
-    internal class HavyAtack
+    public class HavyAtack : Warior
     {
+        public HavyAtack(double Health, double Damage) : base(Health, Damage)
+        {
+        }
+        public override void HaveDamage(double damage)
+        {
+            this.Health -= damage * this.Damage;
+        }
     }
 }
