@@ -22,8 +22,8 @@ namespace Wariors_Omelchenko
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Atack warior = new Atack(100, 0.75);
-        public HavyAtack superWarior = new HavyAtack(100, 0.5);
+        public Atack warior = new Atack(100, 0.5);
+        public HavyAtack superWarior = new HavyAtack(100, 0.75);
         public MainWindow()
         {
             InitializeComponent();
@@ -37,11 +37,23 @@ namespace Wariors_Omelchenko
         {
             warior.HaveDamage(10);
             updateData();
+            if (warior.Health <= 0)
+            {
+                MessageBox.Show("Вас убили!!");
+                Application.Current.Shutdown();
+                updateData();
+            }
         }
         private void AttackHavy(object sender, MouseButtonEventArgs e)
         {
             superWarior.HaveDamage(10);
             updateData();
+            if (superWarior.Health <= 0)
+            {
+                MessageBox.Show("Лучший!!");
+                Application.Current.Shutdown();
+                updateData();
+            }
         }
     }
 }
